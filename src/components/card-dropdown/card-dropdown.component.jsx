@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import CustomButton from '../custom-button/custom-button.component';
 import CardItem from '../card-item/card-item.component';
+import { selectCardItems } from "../../redux/card/card.selectors";
 
 import './card-dropdown.styles.scss';
 
@@ -18,8 +19,8 @@ const CardDropdown = ({ cardItems }) => (
   </div>
 );
 
-const mapStateToProps = ({ card: { cardItems } }) => ({
-  cardItems
+const mapStateToProps = (state) => ({
+  cardItems: selectCardItems(state)
 });
 
 export default connect(mapStateToProps)(CardDropdown);
