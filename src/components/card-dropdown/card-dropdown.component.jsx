@@ -11,6 +11,7 @@ import { withRouter } from "react-router";
 
 import './card-dropdown.styles.scss';
 
+// using history withRouter can convey the current prop into the component.
 const CardDropdown = ({ cardItems, history }) => (
   <div className='card-dropdown'>
     <div className='card-items'>
@@ -26,7 +27,7 @@ const CardDropdown = ({ cardItems, history }) => (
         )
       }
     </div>
-    <CustomButton onClick={() => history.push('/checkout')}>GO TO CHECKOUT</CustomButton>
+    <CustomButton onClick={ () => history.push('/checkout') }>GO TO CHECKOUT</CustomButton>
   </div>
 );
 
