@@ -32,7 +32,7 @@ const CardDropdown = ({ cardItems, history, dispatch }) => (
     </div>
     <CustomButton onClick={ () => {
       history.push('/checkout');
-      dispatch(toggleCardHidden());
+      dispatch( toggleCardHidden() );
     } }>GO TO CHECKOUT</CustomButton>
   </div>
 );
