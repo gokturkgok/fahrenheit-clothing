@@ -38,6 +38,35 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
+// using this function, we can use to make new collections and documents
+// whenever we want
+export const addCollecitonAndDocuments = async (collectionKey, objectsToAdd) => {
+  const collectionRef = firestore.collection(collectionKey);
+  
+  const batch = firestore.batch();
+  objectsToAdd.forEach(obj => {
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, obj);
+  });
+
+  return await batch.commit();
+};
+
+export const convertCollectionsSnapShotToMap = (collections) => {
+  const transformedCollection = collections.docs.map( doc => {
+    const { title, items } = doc.data();
+  
+    return{
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title,
+      items
+    }
+  });
+
+  console.log(transformedCollection);
+}
+
 
 firebase.initializeApp(config);
 
