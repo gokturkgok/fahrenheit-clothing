@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'development'){
 }
 
 export const store = createStore(rootReducer, applyMiddleware(...middlewares)/* preloadedState, */
-+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+/*+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()*/);
 
 export const persistor = persistStore(store);
 
