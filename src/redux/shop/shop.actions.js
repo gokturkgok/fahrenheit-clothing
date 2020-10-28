@@ -15,22 +15,21 @@ export const fetchCollectionsFailure = (errorMessage) => ({
     payload: errorMessage
 })
 
+
 export const fetchCollectionsStartAsync =() => {
     return dispatch => {
         const collectionRef = firestore.collection('collections');
         // dispatch is called as soon as collectionRef is initialized
         // we can do this because of redux-thunk library
         dispatch(fetchCollectionsStart());
-        
 
         // asynchronous fetching nature of data as using promises in JS
         collectionRef
-        .get()
-        .then(snapshot => {
-            const collectionsMap = convertCollectionsSnapShotToMap(snapshot);
-            dispatch(fetchCollectionsSuccess(collectionsMap));
-        })
-        .catch(error => dispatch(fetchCollectionsFailure(error.message)));
+            .get()
+            .then(snapshot => {
+                const collectionsMap = convertCollectionsSnapShotToMap(snapshot);
+                dispatch(fetchCollectionsSuccess(collectionsMap));
+            })
+            .catch(error => dispatch(fetchCollectionsFailure(error.message)));
     }
 }
-
