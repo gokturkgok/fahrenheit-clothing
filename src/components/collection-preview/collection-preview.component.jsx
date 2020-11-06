@@ -1,13 +1,14 @@
 import React from 'react';
 
 import CollectionItem from '../collection-item/collection-item.component';
+import { CollectionPreviewConatiner, CollectionPreviewTitle, PreviewContainer } from './collection-preview.styles';
 
 import './collection-preview.styles.scss';
 
 const CollectionPreview = ({title, items}) => (
-    <div className='collection-preview'>
-        <h1 className='title'>{title.toUpperCase()}</h1>
-        <div className='preview'>
+    <CollectionPreviewConatiner>
+        <CollectionPreviewTitle>{title.toUpperCase()}</CollectionPreviewTitle>
+        <PreviewContainer>
             { items
                 .filter((item, idx) => idx < 4 )
                 .map( item => (
@@ -15,8 +16,8 @@ const CollectionPreview = ({title, items}) => (
                     )
                 )
             }
-        </div>
-    </div>
+        </PreviewContainer>
+    </CollectionPreviewConatiner>
 );
 
 export default CollectionPreview;
