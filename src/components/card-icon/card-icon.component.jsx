@@ -4,11 +4,9 @@ import { connect } from "react-redux";
 import { toggleCardHidden } from "../../redux/card/card.actions";
 import { selectCardItemsCount } from "../../redux/card/card.selectors";
 
-import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
-
 import { createStructuredSelector } from "reselect";
 
-import { CardContainer, ItemCountContainer } from './card-icon.styles';
+import { CardContainer, ItemCountContainer, ShoppingIcon } from './card-icon.styles';
 
 const CardIcon = ({toggleCardHidden, itemCount}) => (
     <CardContainer onClick={toggleCardHidden}>
