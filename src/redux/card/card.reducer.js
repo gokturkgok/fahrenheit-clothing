@@ -34,6 +34,12 @@ const cardReducer = (state = INITIAL_STATE, action) => {
           )
         }
 
+      case CardActionTypes.CLEAR_CART:
+        return {
+          ...state,
+          cardItems: []
+        }
+
       default:
         return state;
     }
